@@ -1,0 +1,44 @@
+.navContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  .navLoginSection {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+
+    .navLoginOption {
+      font-size: 0.7rem;
+      color: rgb(114, 113, 113);
+      background-color: white;
+      border: none;
+    }
+  }
+
+  .navLogoContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .navOptions {
+    display: flex;
+    justify-content: center;
+
+    .navOption {
+      border: none;
+      outline: none;
+      padding: 1rem;
+      background-color: white;
+      cursor: pointer;
+      font-weight: bold;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}
