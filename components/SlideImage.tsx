@@ -26,7 +26,7 @@ export default function SlideImage({ size }: { size: number }) {
     }
 
     return (
-        <div className={style.slideContainer} style={{ width: `${size.toString()}px` }}>
+        <div className={style.slideContainer} style={{ width: `${size.toString()}px`, height: `${size.toString()}px`}}>
             <div 
                 className={style.slideList}
                 style={{
@@ -37,32 +37,32 @@ export default function SlideImage({ size }: { size: number }) {
                 }}
             >
                 {images.map((image, i) => (
-                    <div className={style.slide} style={{ width: `${size.toString()}px` }}>
+                    <div key={i} className={style.slide} style={{ width: `${size.toString()}px` }}>
                         <Image
-                            key={i}
                             className={style.image}
                             src={image}
-                            width={size}
-                            height={size}
+                            width='100%'
+                            height='100%'
+                            layout="responsive"
                         />
                     </div>
                 ))}
                 
             </div>
             <div className={style.slideButton} style={{ width: `${size.toString()}px`, bottom: `${(size * 0.6).toString()}px`}}>
-                    <button 
-                        onClick={() => onMove(location - 1)}
-                        className={style.btn}
-                    >
-                        <Image src={left} width={20} height={20}/>
-                    </button>
-                    <button 
-                        className={style.btn} 
-                        onClick={() => onMove(location + 1)}
-                    >
-                        <Image src={right} width={20} height={20}/>
-                    </button>
-                </div>
+                <button 
+                    onClick={() => onMove(location - 1)}
+                    className={style.btn}
+                >
+                    <Image src={left} width={20} height={20}/>
+                </button>
+                <button 
+                    className={style.btn} 
+                    onClick={() => onMove(location + 1)}
+                >
+                    <Image src={right} width={20} height={20}/>
+                </button>
+            </div>
         </div>
     )
 }
