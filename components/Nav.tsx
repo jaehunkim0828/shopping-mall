@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useRouter } from "next/router";
 
 import style from '../styles/nav.module.scss';
 import logo from '../public/images/logo.jpg'
@@ -7,6 +8,11 @@ import { fakeNavOption, fakeNavProfile } from '../fakeData';
 import NavProfile from './NavProfile';
 
 export default function Nav() {
+    const router = useRouter();
+
+    const goMain = () => {
+        router.push('/');
+    }
     
     return (
         <div className={style.navContainer}>
@@ -14,11 +20,13 @@ export default function Nav() {
                 {fakeNavProfile.map((option, i) => <NavProfile key={`nav profile index ${i}`} name={option.name} path={option.path}/>)}
             </div>
             <div className={style.navLogoContainer}>
-                <Image 
-                    src={logo}
-                    width={500}
-                    height={100}
-                />
+                <div onClick={goMain}>
+                    <Image 
+                        src={logo}
+                        width={500}
+                        height={100}
+                    />
+                </div>
             </div>
             <div className={style.navOptions}>
                 {fakeNavOption.map((option, i) => {
