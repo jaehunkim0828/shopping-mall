@@ -1,0 +1,17 @@
+.thumbContainer {
+  padding: 1rem;
+
+  .title {
+  }
+  .price {
+    color: tomato;
+  }
+  .firstPrice {
+    font-weight: bold;
+    text-decoration: line-through;
+  }
+  .size {
+    color: rgb(167, 167, 167);
+    font-size: 0.7rem;
+  }
+}
