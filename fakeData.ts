@@ -10,7 +10,7 @@ import th3 from './public/images/test3.webp';
 import th4 from './public/images/test4.webp';
 
 export const fakeNavOption = ['BEST100', 'NEW10%', '1 + 1', 'TOP', 'OUTER', 'PANTS', 'OPS/SKIRT', 'KNIT/CARDIGAN', 'SALE'];
-export const fakeNavProfile = [
+export const fakeNavLogin = [
     {
         name: '회원가입',
         path : '/login'
@@ -18,6 +18,16 @@ export const fakeNavProfile = [
     {
         name: '로그인',
         path : '/login'
+    },
+    {
+        name: '고객센터',
+        path: '/faq'
+    }
+];
+
+export const fakeNavProfile = [
+    {
+        name: '로그아웃',
     },
     {
         name: '마이페이지',
