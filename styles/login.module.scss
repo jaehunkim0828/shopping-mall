@@ -1,0 +1,56 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  margin: 3rem auto;
+
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(189, 189, 189);
+    width: 40rem;
+    height: 30rem;
+    justify-content: space-between;
+    padding: 3rem 5rem;
+
+    form {
+      display: flex;
+
+      .loginInput {
+        display: flex;
+        margin: 1rem 1rem 1rem 0;
+        align-items: center;
+
+        div {
+          width: 4rem;
+        }
+
+        input {
+          width: 20rem;
+          height: 2.5rem;
+          border: 1px solid rgb(189, 189, 189);
+        }
+      }
+
+      button {
+        margin: 1rem 0;
+        width: 5rem;
+        background-color: rgb(59, 59, 59);
+        color: white;
+        font-size: 1.4rem;
+        border: none;
+        cursor: pointer;
+      }
+    }
+
+    .snsContainer {
+      display: flex;
+
+      button {
+        margin: 0 1rem;
+        background-color: white;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
