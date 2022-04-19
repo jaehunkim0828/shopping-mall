@@ -8,10 +8,14 @@ import { wrapper } from '../store';
 declare global {
   interface Window {
     Kakao: any;
+    naver: any;
+    googleSDKLoaded: any;
+    gapi: any;
   }
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
+
 
   useEffect(() => {
     try {
@@ -21,6 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     } catch(e) { console.log(e)}
 
   }, [])
+  
   return (
     <div>
       <Nav />
