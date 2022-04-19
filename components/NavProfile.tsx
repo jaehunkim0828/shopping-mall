@@ -9,23 +9,36 @@ export default function NavProfile({ name, path }: { name: string, path?: string
     const dispatch = useDispatch();
 
     const onMovePage = () => {
-        const { localStorage } = window;
         if (path) return router.push(path);
-        const kind = window.localStorage.getItem('login-kind');
-        if (kind) localStorage.removeItem('login-kind');
-        localStorage.removeItem('token');
-        console.log(window.Kakao.Auth.getAccessToken())
-        if (!window.Kakao.Auth.getAccessToken()) {
-            console.log('아직 로그인 인됨');
-            return;
-        }
-        window.Kakao.Auth.logout(function() {
-            console.log('로그아웃 성공');
-        });
-        dispatch(logoutAct());
     };
 
+    const logout = async () => {
+        const { localStorage, gapi } = window;
+
+        localStorage.removeItem('token');
+        if (localStorage.getItem('com.naver.nid.access_token')) {
+            localStorage.removeItem('com.naver.nid.access_token');
+            localStorage.removeItem('com.naver.nid.oauth.state_token');
+        }
+        dispatch(logoutAct());
+
+        if (gapi.auth2) {
+            const auth2 = await gapi.auth2.getAuthInstance();
+            auth2
+                .signOut()
+                .then(auth2.disconnect())
+                .catch(console.log);
+        }
+        if (window.Kakao.Auth.getAccessToken()) {
+            //카카오 로그인
+            window.Kakao.Auth.logout(function() {
+                console.log('로그아웃 성공');
+            });
+            return;
+        }
+    }
+
     return (
-    <button className={style.navLoginOption} onClick={onMovePage}>{name}</button>
+    <button className={style.navLoginOption} onClick={path? onMovePage : logout}>{name}</button>
     )
 }
