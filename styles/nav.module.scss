@@ -1,9 +1,11 @@
+@import './theme.scss';
+
 .navContainer {
   display: flex;
   flex-direction: column;
-  width: 100%;
   justify-content: center;
   align-items: center;
+  @include get-color(background-color, bg-color);
 
   .navLoginSection {
     padding-top: 1rem;
@@ -13,8 +15,8 @@
 
     .navLoginOption {
       font-size: 0.7rem;
-      color: rgb(114, 113, 113);
-      background-color: white;
+      @include get-color(color, profile-color);
+      @include get-color(background-color, bg-color);
       border: none;
       cursor: pointer;
     }
@@ -23,6 +25,12 @@
   .navLogoContainer {
     display: flex;
     justify-content: center;
+
+    .logo {
+      font-family: 'Lobster', cursive;
+      font-size: 4rem;
+      color: #e0bfe6;
+    }
   }
 
   .navOptions {
@@ -33,7 +41,8 @@
       border: none;
       outline: none;
       padding: 1rem;
-      background-color: white;
+      @include get-color(background-color, bg-color);
+      @include get-color(color, text-color);
       cursor: pointer;
       font-weight: bold;
 

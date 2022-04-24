@@ -1,5 +1,15 @@
+@import './theme.scss';
+
 .homeContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100vw;
+  @include get-color(background-color, bg-color);
+
+  .bestItems {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
