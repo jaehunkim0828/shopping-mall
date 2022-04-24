@@ -1,17 +1,30 @@
+@import './theme.scss';
+
 .thumbContainer {
-  padding: 1rem;
+  margin: 2.5%;
+  width: 20%;
 
   .title {
+    @include get-color(color, text-color);
   }
+
   .price {
     color: tomato;
   }
   .firstPrice {
     font-weight: bold;
     text-decoration: line-through;
+    @include get-color(color, text-color);
   }
   .size {
     color: rgb(167, 167, 167);
     font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 1248px) {
+  .thumbContainer {
+    width: 30%;
+    margin: 1.6%;
   }
 }
